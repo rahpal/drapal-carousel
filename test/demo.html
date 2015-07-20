@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../src/caurosel-tmpl.css" type="text/css">
+    <link rel="stylesheet" href="../dependencies/animate.min.css" type="text/css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.min.js"></script>
+    <script src="../src/component-compiled.js"></script>
+
+</head>
+<body ng-app="demoApp">
+<div ng-controller="demoCtrl">
+    {{name}}
+    <rp-carousel options="arry"></rp-carousel>
+</div>
+
+<script type="text/javascript">
+    angular.module('demoApp', ['rahpal.carousel'])
+            .controller('demoCtrl', function($scope){
+                $scope.name ="Rahul Pal";
+                $scope.arry =[{imgUrl:'https://avatars1.githubusercontent.com/u/8003074?v=3&s=460', id: 1},
+                    {imgUrl:'https://avatars1.githubusercontent.com/u/8003044?v=3&s=460', id: 2}];
+            });
+</script>
+</body>
+</html>

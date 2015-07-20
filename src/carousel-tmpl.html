@@ -1,0 +1,15 @@
+<section>
+    <div ng-mouseenter="" ng-mouseleave="" class="rp-carousel">
+        <div class="carousel-inner">
+            <div ng-repeat="item in items" ng-class="{'active': item.active }" class="item">
+                <a href="javascript:void 0;">
+                    <img src={{item.imgUrl}} alt="IMAGE"/>
+                </a>
+                <label></label>
+            </div>
+        </div>
+        <a href="javascript:void 0;" class="left-arrow-carousel handle" ng-click="prevClick()"> <  </a>
+        <a href="javascript:void 0;" class="right-arrow-carousel handle" ng-click="nextClick()"> > </a>
+        <div class="clearfix"></div>
+    </div>
+</section>

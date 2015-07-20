@@ -1,0 +1,36 @@
+.rp-carousel{
+    position: relative;
+}
+
+.carousel-inner{
+    position: relative;
+}
+
+.carousel-inner > .item{
+    position: relative;
+    display: none;
+    transition: .6s ease-in-out left;
+}
+
+.left-arrow-carousel{
+    position: absolute;
+    left: 0;
+}
+
+.right-arrow-carousel{
+    position: absolute;
+    right: 0;
+}
+
+.handle{
+    display: block;
+    top: 0;
+    height: 100%;
+    width: 60px;
+    vertical-align: baseline;
+    text-align: center;
+}
+
+.active{
+    display: block !important;
+}
