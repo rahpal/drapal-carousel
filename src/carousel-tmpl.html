@@ -1,5 +1,8 @@
 <section>
     <div ng-mouseenter="" ng-mouseleave="" class="rp-carousel">
+        <ul class="image-handle">
+            <li ng-repeat="item in items"></li>
+        </ul>
         <div class="carousel-inner">
             <div class="item" ng-animate="'animate'" ng-repeat="item in items | filter:{ active: true }">
                 <a href="javascript:void 0;">
@@ -8,8 +11,20 @@
                 <label></label>
             </div>
         </div>
-        <a href="javascript:void 0;" class="left-arrow-carousel handle" ng-click="prevClick()">  </a>
-        <a href="javascript:void 0;" class="right-arrow-carousel handle" ng-click="nextClick()">  </a>
+        <a href="javascript:void 0;" class="left-arrow-carousel handle" ng-click="prevClick()">
+            <div></div>
+            <div>
+                <img src="../images/left-arrow-white.png" alt="left arrow">
+            </div>
+            <div></div>
+        </a>
+        <a href="javascript:void 0;" class="right-arrow-carousel handle" ng-click="nextClick()">
+            <div></div>
+            <div>
+                <img src="../images/right-arrow-white.png" alt="right arrow">
+            </div>
+            <div></div>
+        </a>
         <div class="clearfix"></div>
     </div>
 </section>
