@@ -1,15 +1,15 @@
 <section>
     <div ng-mouseenter="" ng-mouseleave="" class="rp-carousel">
         <div class="carousel-inner">
-            <div ng-repeat="item in items" ng-class="{'active': item.active }" class="item">
+            <div class="item" ng-animate="'animate'" ng-repeat="item in items | filter:{ active: true }">
                 <a href="javascript:void 0;">
-                    <img src={{item.imgUrl}} alt="IMAGE"/>
+                    <img src={{item.imgUrl}} alt="Image Missing"/>
                 </a>
                 <label></label>
             </div>
         </div>
-        <a href="javascript:void 0;" class="left-arrow-carousel handle" ng-click="prevClick()"> <  </a>
-        <a href="javascript:void 0;" class="right-arrow-carousel handle" ng-click="nextClick()"> > </a>
+        <a href="javascript:void 0;" class="left-arrow-carousel handle" ng-click="prevClick()">  </a>
+        <a href="javascript:void 0;" class="right-arrow-carousel handle" ng-click="nextClick()">  </a>
         <div class="clearfix"></div>
     </div>
 </section>

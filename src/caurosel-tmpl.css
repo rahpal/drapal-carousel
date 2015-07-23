@@ -1,15 +1,5 @@
 .rp-carousel{
-    position: relative;
-}
-
-.carousel-inner{
-    position: relative;
-}
-
-.carousel-inner > .item{
-    position: relative;
-    display: none;
-    transition: .6s ease-in-out left;
+    overflow: hidden;
 }
 
 .left-arrow-carousel{
@@ -29,8 +19,27 @@
     width: 60px;
     vertical-align: baseline;
     text-align: center;
+    background-color: #000;
+    opacity: 0.2;
 }
 
-.active{
-    display: block !important;
+.handle:hover{
+    opacity: 0.3;
+}
+
+.ng-enter {
+    transition: 1s ease-in-out left;
+    position: relative;
+}
+.ng-enter.ng-enter-active, .ng-leave {
+    left: 0;
+}
+.ng-leave.ng-leave-active, .ng-enter {
+    left: 100%;
+}
+
+.carousel-container{
+    width: 600px;
+    height: 300px;
+    position: absolute;
 }

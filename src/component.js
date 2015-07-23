@@ -23,7 +23,7 @@
             return{
                 restrict: 'EA',
                 templateUrl: "http://localhost:63342/drapal-carousel/src/carousel-tmpl.html",
-                replace: false,
+                replace: true,
                 scope:{
                     options: '='
                 },
