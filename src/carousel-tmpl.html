@@ -1,8 +1,8 @@
 <section>
     <div ng-mouseenter="" ng-mouseleave="" class="rp-carousel">
-        <ul class="image-handle">
-            <li ng-repeat="item in items"></li>
-        </ul>
+        <div class="image-handler">
+            <a href="javascript:void 0;" ng-repeat="item in items" ng-click="imageHandler($index)"></a>
+        </div>
         <div class="carousel-inner">
             <div class="item" ng-animate="'animate'" ng-repeat="item in items | filter:{ active: true }">
                 <a href="javascript:void 0;">

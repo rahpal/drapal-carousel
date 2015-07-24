@@ -56,7 +56,28 @@ ul.image-handle li {
 }
 
 .carousel-container{
-    width: 600px;
+    width: 620px;
     height: 250px;
     position: absolute;
+}
+
+.image-handler{
+    position: absolute;
+    z-index: 10;
+    top: 85%;
+    left: 40%;
+}
+
+.image-handler > a{
+    width: 10px;
+    height: 10px;
+    background-color: #cccccc;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.image-handler > a:hover{
+    background-color: #fef9e6;
+    border: 1px solid #fef9e6;
+    box-sizing: border-box;
 }

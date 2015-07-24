@@ -27,12 +27,6 @@
                 scope:{
                     options: '='
                 },
-                compile: (tElem,attrs)=>{
-
-                    return (scope, elem, attrs)=>{
-
-                    }
-                },
                 controller: ['$scope', '$interval',($scope, $interval)=>{
                     $scope.items = null;
 
@@ -76,16 +70,7 @@
                             $scope.items[params.currIndex + 1].active = true;
                             params.currIndex += 1;
                         },
-                        updateCarousel = (params)=>{
-                            // Initialize Carousel
-                            switch (params.dir){
-                                case 'prev':
-                                    changeToPrev(params);
-                                    break;
-                                case 'next':
-                                    changeToNext(params);
-                                    break;
-                            }
+                        resetTimer = (params) => {
 
                             if(angular.isDefined(timer)){
                                 $interval.cancel(timer);
@@ -104,6 +89,26 @@
                                         throw new Error('Carousel direction is undefined!!!');
                                 }
                             }, 5000);
+                        },
+                        updateCarousel = (params, forFirstTime = false)=>{
+
+                            if(forFirstTime){
+                                $scope.items[objParams.currIndex].active = true;
+                                resetTimer(params);
+                                return;
+                            }
+
+                            // Initialize Carousel
+                            switch (params.dir){
+                                case 'prev':
+                                    changeToPrev(params);
+                                    break;
+                                case 'next':
+                                    changeToNext(params);
+                                    break;
+                            }
+
+                            resetTimer(params);
                         };
 
                     init();
@@ -119,7 +124,15 @@
                         updateCarousel(objParams);
                     };
 
-                    updateCarousel(objParams);
+                    $scope.imageHandler = (indexer) =>{
+                        $scope.items[objParams.currIndex].active = false;
+                        objParams.currIndex = indexer;
+                        $scope.items[objParams.currIndex].active = true;
+                        // Reset Timer
+                        resetTimer(objParams);
+                    };
+
+                    updateCarousel(objParams, true);
                 }]
             }
 
