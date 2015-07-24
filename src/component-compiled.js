@@ -18,11 +18,11 @@
 })(angular || null, function (angular) {
     'use strict';
 
-    angular.module('rahpal.carousel', []).directive('rpCarousel', function () {
+    angular.module('rahpal.carousel', []).directive('rpCarousel', function ($templateCache) {
 
         return {
             restrict: 'EA',
-            templateUrl: 'http://localhost:63342/drapal-carousel/src/carousel-tmpl.html',
+            template: $templateCache.get('carousel-tmpl.html'),
             replace: true,
             scope: {
                 options: '='
@@ -136,7 +136,9 @@
                 updateCarousel(objParams, true);
             }]
         };
-    });
+    }).run(['$templateCache', function ($templateCache) {
+        $templateCache.put('carousel-tmpl.html', '<section>            <div class="rp-carousel">                <div class="image-handler">                    <a href="javascript:void 0;" ng-repeat="item in items" ng-click="imageHandler($index)"></a>                </div>                <div class="carousel-inner">                <div class="item" ng-animate="\'animate\'" ng-repeat="item in items | filter:{ active: true }">                    <a href="javascript:void 0;">                        <img src={{item.imgUrl}} alt="Image Missing"/>                    </a>            </div>            </div>            <a href="javascript:void 0;" class="left-arrow-carousel handle" ng-click="prevClick()">            <div></div>            <div>            <img src="../images/left-arrow-white.png" alt="left arrow">            </div>            <div></div>            </a>            <a href="javascript:void 0;" class="right-arrow-carousel handle" ng-click="nextClick()">            <div></div>            <div>            <img src="../images/right-arrow-white.png" alt="right arrow">            </div>            <div></div>            </a>            <div class="clearfix"></div>            </div>        </section>');
+    }]);
 });
 
 //# sourceMappingURL=component-compiled.js.map
